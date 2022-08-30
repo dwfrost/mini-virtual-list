@@ -9,15 +9,15 @@
         </div>
         <template v-if="show">
             <div class="item">
-                <VirtualList :options="options" />
+                <List :options="options" />
             </div>
         </template>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed, nextTick, ref } from 'vue'
-import VirtualList from './components/VirtualList.vue'
+import List from './List.vue'
 
 const initials = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
@@ -46,21 +46,16 @@ body {
     height: 100vh;
     margin: 0;
 
-    #play {
+    .play-container {
         height: 100%;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        .play-container {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .item {
-                margin: 10px 0;
-            }
+        .item {
+            margin: 10px 0;
         }
     }
 }
